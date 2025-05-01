@@ -5,14 +5,14 @@ A simplified Spring Boot-based backend service for tracking the GPS data of a ve
 
 ## Features
 
-- [ x ] RESTful API for GPS data ingestion and retrieval
-- [ x ] PostgreSQL with JPA/Hibernate for persistence
-- [ x ] Flyway for database migrations
-- [ x ] Speed violation detection (speed > 100 km/h)
-- [ x ] Scheduled cleanup of old GPS logs (configurable)
-- [ x ] OpenAPI (Swagger) documentation
-- [ x ] Input validation and error handling
-- [ x ] Dockerized deployment setup
+- [x] RESTful API for GPS data ingestion and retrieval
+- [x] PostgreSQL with JPA/Hibernate for persistence
+- [x] Flyway for database migrations
+- [x] Speed violation detection (speed > 100 km/h)
+- [x] Scheduled cleanup of old GPS logs (configurable)
+- [x] OpenAPI (Swagger) documentation
+- [x] Input validation and error handling
+- [x] Dockerized deployment setup
 
 ---
 
