@@ -20,4 +20,5 @@ public interface GpsLogRepository {
     GpsLog save(GpsLog gpsLog, VehicleEntity vehicleEntity);
     Optional<GpsLog> findLatestByVehicleId(Long vehicleId);
     List<GpsLog> findAllByVehicleIdAndTimestampBetween(Long vehicleId, LocalDateTime from, LocalDateTime to);
+    int deleteByTimestampsBefore(LocalDateTime cutOffDate);
 }

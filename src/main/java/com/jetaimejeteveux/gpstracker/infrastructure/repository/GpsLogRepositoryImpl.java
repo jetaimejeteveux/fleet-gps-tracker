@@ -53,4 +53,9 @@ public class GpsLogRepositoryImpl implements GpsLogRepository {
                 .toList();
     }
 
+    @Override
+    public int deleteByTimestampsBefore(LocalDateTime cutOffDate) {
+      return gpsLogJpaRepository.deleteByTimestampBefore(cutOffDate);
+    }
+
 }

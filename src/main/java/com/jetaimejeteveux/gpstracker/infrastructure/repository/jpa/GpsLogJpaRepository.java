@@ -21,9 +21,13 @@ import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.GpsLogEnt
  */
 public interface GpsLogJpaRepository extends JpaRepository<GpsLogEntity, Long> {
     Optional<GpsLogEntity> findTopByVehicleIdOrderByTimestampDesc(Long vehicleId);
+    
     @Query("SELECT g FROM GpsLogEntity g WHERE g.vehicle.id = :vehicleId AND g.timestamp BETWEEN :fromTime AND :toTime ORDER BY g.timestamp")
     List<GpsLogEntity> findAllByVehicleIdAndTimestampBetween(
             @Param("vehicleId") Long vehicleId,
             @Param("fromTime") LocalDateTime fromTime,
             @Param("toTime") LocalDateTime toTime);
+    
+    @Query("DELETE FROM GpsLogEntity g WHERE g.timestamp < :cutoffDate")
+    int deleteByTimestampBefore(@Param("cutoffDate") LocalDateTime cutoffDate);
 }
