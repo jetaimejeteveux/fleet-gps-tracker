@@ -27,6 +27,7 @@ public class GpsLogDtoMapper {
                 .longitude(domain.getLongitude())
                 .speed(domain.getSpeed())
                 .timestamp(domain.getTimestamp())
+                .speedViolation(domain.getSpeedViolation())
                 .build();
     }
 
@@ -40,6 +41,7 @@ public class GpsLogDtoMapper {
                 .longitude(dto.getLongitude())
                 .speed(dto.getSpeed())
                 .timestamp(dto.getTimestamp())
+                .speedViolation(dto.getSpeedViolation())
                 .build();
     }
 }

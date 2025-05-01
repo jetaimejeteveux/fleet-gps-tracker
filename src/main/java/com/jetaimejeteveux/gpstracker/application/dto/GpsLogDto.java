@@ -44,5 +44,5 @@ public class GpsLogDto {
     private Double speed;
 
     private LocalDateTime timestamp;
-
+    private Boolean speedViolation;
 }

@@ -28,6 +28,7 @@ public class GpsLogEntityMapper {
                 .longitude(domain.getLongitude())
                 .speed(domain.getSpeed())
                 .timestamp(domain.getTimestamp())
+                .speedViolation(domain.getSpeedViolation())
                 .build();
     }
 
@@ -41,6 +42,7 @@ public class GpsLogEntityMapper {
                 .longitude(entity.getLongitude())
                 .speed(entity.getSpeed())
                 .timestamp(entity.getTimestamp())
+                .speedViolation(entity.getSpeedViolation())
                 .build();
     }
 

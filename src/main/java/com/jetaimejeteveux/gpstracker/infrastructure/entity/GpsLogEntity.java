@@ -58,5 +58,8 @@ public class GpsLogEntity {
 
     @Column(nullable = false)
     private LocalDateTime timestamp;
+
+    @Column(name = "speed_violation") 
+    private Boolean speedViolation = false;
 }
 

@@ -28,5 +28,6 @@ import lombok.NoArgsConstructor;
      private Double longitude;
      private Double speed;
      private LocalDateTime timestamp;
+     private Boolean speedViolation;
  }
  

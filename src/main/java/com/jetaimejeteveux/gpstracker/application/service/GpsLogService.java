@@ -39,6 +39,7 @@ public class GpsLogService {
     private final VehicleRepository vehicleRepository;
     private final VehicleEntityMapper vehicleEntityMapper;
     private final GpsLogDtoMapper gpsLogDtoMapper;
+    private static final double SPEED_LIMIT = 100.0;
 
     @Transactional
     public GpsLogDto logGpsData(GpsLogDto gpsLogDto) {
@@ -47,12 +48,13 @@ public class GpsLogService {
         VehicleEntity vehicleEntity = vehicleEntityMapper.toEntity(vehicle);
 
         gpsLogDto.setTimestamp(LocalDateTime.now());
+        gpsLogDto.setSpeedViolation(gpsLogDto.getSpeed() > SPEED_LIMIT);
 
         GpsLog gpsLog = gpsLogDtoMapper.toDomain(gpsLogDto);
         GpsLog savedGpsLog = gpsRepository.save(gpsLog, vehicleEntity);
 
-        log.info("GPS data logged for vehicle ID: {}, Speed: {}", 
-                vehicle.getId(), gpsLogDto.getSpeed());
+        log.info("GPS data logged for vehicle ID: {}, Speed: {}, Speed Violation: {}", 
+                vehicle.getId(), gpsLogDto.getSpeed(), gpsLogDto.getSpeedViolation());
 
         return gpsLogDtoMapper.toDto(savedGpsLog);
     }
