@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package com.jetaimejeteveux.gpstracker.infrastructure.entity;
+package com.jetaimejeteveux.gpstracker.infrastructure.repository.entity;
 
 import java.util.ArrayList;
 import java.util.List;

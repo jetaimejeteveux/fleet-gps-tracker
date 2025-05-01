@@ -13,9 +13,9 @@ import org.springframework.stereotype.Repository;
 
 import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
 import com.jetaimejeteveux.gpstracker.domain.repository.GpsLogRepository;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.GpsLogEntity;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.mapper.GpsLogEntityMapper;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.GpsLogEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.repository.jpa.GpsLogJpaRepository;
 
 import lombok.RequiredArgsConstructor;

@@ -12,8 +12,8 @@ import org.springframework.stereotype.Repository;
 
 import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
 import com.jetaimejeteveux.gpstracker.domain.repository.VehicleRepository;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.mapper.VehicleEntityMapper;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.repository.jpa.VehicleJpaRepository;
 
 import lombok.RequiredArgsConstructor;

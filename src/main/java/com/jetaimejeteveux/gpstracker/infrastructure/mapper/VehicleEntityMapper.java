@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 
 /**
  *

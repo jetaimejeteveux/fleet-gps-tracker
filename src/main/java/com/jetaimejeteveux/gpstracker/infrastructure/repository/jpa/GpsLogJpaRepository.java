@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.GpsLogEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.GpsLogEntity;
 
 /**
  *

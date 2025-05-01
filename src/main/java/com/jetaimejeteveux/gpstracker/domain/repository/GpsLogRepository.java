@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 
 /**
  *

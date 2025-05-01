@@ -8,8 +8,8 @@ package com.jetaimejeteveux.gpstracker.infrastructure.mapper;
 import org.springframework.stereotype.Component;
 
 import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.GpsLogEntity;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.GpsLogEntity;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 
 /**
  *

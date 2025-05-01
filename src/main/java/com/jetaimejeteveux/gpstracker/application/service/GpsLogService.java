@@ -19,8 +19,8 @@ import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
 import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
 import com.jetaimejeteveux.gpstracker.domain.repository.GpsLogRepository;
 import com.jetaimejeteveux.gpstracker.domain.repository.VehicleRepository;
-import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.mapper.VehicleEntityMapper;
+import com.jetaimejeteveux.gpstracker.infrastructure.repository.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.presentation.exception.ResourceNotFoundException;
 
 import lombok.RequiredArgsConstructor;
