@@ -54,6 +54,10 @@ public class GpsLogService {
 
         GpsLog gpsLog = gpsLogDtoMapper.toDomain(gpsLogDto);
         GpsLog savedGpsLog = gpsRepository.save(gpsLog, vehicleEntity);
+
+        log.info("GPS data logged for vehicle ID: {}, Speed: {}", 
+                vehicle.getId(), gpsLogDto.getSpeed());
+
         return gpsLogDtoMapper.toDto(savedGpsLog);
     }
 }
