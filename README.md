@@ -1,18 +1,17 @@
----
-
 ````markdown
 # Fleet GPS Tracking Microservice
 
 A simplified Spring Boot-based backend service for tracking the GPS data of a vehicle fleet across Indonesia.
 
 ## Features
-- [x] RESTful API for GPS data ingestion and retrieval  
-- [x] PostgreSQL with JPA/Hibernate for persistence  
-- [x] Flyway for database migrations  
-- [x] Speed violation detection (speed > 100 km/h)  
-- [x] Scheduled cleanup of old GPS logs (configurable)  
-- [x] OpenAPI (Swagger) documentation  
-- [x] Input validation and error handling  
+
+- [x] RESTful API for GPS data ingestion and retrieval
+- [x] PostgreSQL with JPA/Hibernate for persistence
+- [x] Flyway for database migrations
+- [x] Speed violation detection (speed > 100 km/h)
+- [x] Scheduled cleanup of old GPS logs (configurable)
+- [x] OpenAPI (Swagger) documentation
+- [x] Input validation and error handling
 - [x] Dockerized deployment setup
 
 ---
@@ -46,7 +45,6 @@ A simplified Spring Boot-based backend service for tracking the GPS data of a ve
 git clone https://github.com/your-username/fleet-gps-tracker.git
 cd fleet-gps-tracker
 ```
-
 ````
 
 ---
@@ -198,4 +196,7 @@ A Postman collection is available in `postman/fleet - gps tracker.postman_collec
 ```
 
 ```
-````
+
+```
+
+```
