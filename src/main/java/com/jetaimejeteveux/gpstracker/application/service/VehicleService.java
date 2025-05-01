@@ -49,4 +49,17 @@ public class VehicleService {
         Vehicle savedVehicle = vehicleRepository.save(vehicle);
         return vehicleDtoMapper.toDto(savedVehicle);
     }
+
+    @Transactional
+    public VehicleDto updateVehicle(Long id, VehicleDto vehicleDto) {
+        Vehicle vehicle = vehicleRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Vehicle not found with id: " + id));
+
+        vehicle.setPlateNumber(vehicleDto.getPlateNumber());
+        vehicle.setName(vehicleDto.getName());
+        vehicle.setType(vehicleDto.getType());
+        Vehicle updatedVehicle = vehicleRepository.save(vehicle);
+
+        return vehicleDtoMapper.toDto(updatedVehicle);
+    }
 }

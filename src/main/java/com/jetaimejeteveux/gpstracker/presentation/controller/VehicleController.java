@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,6 +28,7 @@ import com.jetaimejeteveux.gpstracker.application.service.VehicleService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
 
 
 
@@ -77,5 +79,11 @@ public class VehicleController {
             @RequestParam("to") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime to) {
         
         return ResponseEntity.ok(gpsLogService.getLocationHistory(vehicleId, from, to));
+    }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Update vehicle", description = "Update vehicle details")
+    public ResponseEntity<VehicleDto> updateVehicle(@PathVariable Long id, @RequestBody VehicleDto vehicleDto) {
+        return ResponseEntity.ok(vehicleService.updateVehicle(id, vehicleDto));
     }
 }
