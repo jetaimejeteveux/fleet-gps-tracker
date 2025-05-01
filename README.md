@@ -179,7 +179,7 @@ app.gps-log.retention-days=30
 
 ## Postman Collection
 
-A Postman collection is available in `postman/FleetGPS.postman_collection.json`.
+A Postman collection is available in `postman/fleet - gps tracker.postman_collection.json`.
 
 ---
 
