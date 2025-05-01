@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.jetaimejeteveux.gpstracker.application.dto.GpsLogDto;
 import com.jetaimejeteveux.gpstracker.application.service.GpsLogService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -30,6 +31,7 @@ public class GpsLogController {
     private final GpsLogService gpsLogService;
 
     @PostMapping()
+    @Operation(summary = "Log GPS data", description = "Submit a GPS log entry for a specific vehicle")
     public ResponseEntity<GpsLogDto> createGpsLog(@Valid @RequestBody GpsLogDto gpsLogDto) {
         GpsLogDto createdGpsLog = gpsLogService.logGpsData(gpsLogDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdGpsLog);

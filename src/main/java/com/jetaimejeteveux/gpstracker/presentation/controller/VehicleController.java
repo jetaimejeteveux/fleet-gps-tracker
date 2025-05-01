@@ -43,6 +43,7 @@ public class VehicleController {
     private final GpsLogService gpsLogService; 
 
     @PostMapping()
+    @Operation(summary = "Create a new vehicle", description = "Register a new vehicle in the system")
     public ResponseEntity<VehicleDto> createVehicle(@Valid @RequestBody VehicleDto vehicleDto) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(vehicleService.createVehicle(vehicleDto));
@@ -50,6 +51,7 @@ public class VehicleController {
     }
 
     @GetMapping()
+    @Operation(summary = "Get all vehicles", description = "Retrieve all vehicles")
     public ResponseEntity<List<VehicleDto>> getAllVehicles() {
         List<VehicleDto> vehicles = vehicleService.getAllVehicles();
         return ResponseEntity.ok(vehicles);
@@ -62,6 +64,7 @@ public class VehicleController {
     }
 
     @GetMapping("/{id}/last-location")
+    @Operation(summary = "Get last known location", description = "Get the most recent GPS location of the vehicle")
     public ResponseEntity<LocationResponse> getLastLocation(@PathVariable("id") Long vehicleId) {
         return ResponseEntity.ok(gpsLogService.getLatestGpsLocation(vehicleId));
     }
