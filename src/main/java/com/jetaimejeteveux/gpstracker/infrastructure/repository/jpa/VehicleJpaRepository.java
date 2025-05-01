@@ -3,15 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
 
-package com.jetaimejeteveux.gpstracker.infrastructure.repository;
+package com.jetaimejeteveux.gpstracker.infrastructure.repository.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
+import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 /**
  *
  * @author firman
  */
-public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
+public interface VehicleJpaRepository extends JpaRepository<VehicleEntity, Long> {
     boolean existsByPlateNumber(String plateNumber);
 }

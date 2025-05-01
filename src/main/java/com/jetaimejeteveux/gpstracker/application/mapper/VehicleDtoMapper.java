@@ -16,22 +16,26 @@ import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
  */
 
 @Component
-public class VehicleMapper {
-    public VehicleDto convertToDto(Vehicle vehicle) {
+public class VehicleDtoMapper {
+    public VehicleDto toDto(Vehicle domain) {
+        if (domain == null) return null;
+
         return VehicleDto.builder()
-                .id(vehicle.getId())
-                .plateNumber(vehicle.getPlateNumber())
-                .name(vehicle.getName())
-                .type(vehicle.getType())
+                .id(domain.getId())
+                .plateNumber(domain.getPlateNumber())
+                .name(domain.getName())
+                .type(domain.getType())
                 .build();
     }
-    
-    public Vehicle convertToEntity(VehicleDto vehicleDto) {
+
+    public static Vehicle toDomain(VehicleDto dto) {
+        if (dto == null) return null;
+
         return Vehicle.builder()
-                .id(vehicleDto.getId())
-                .plateNumber(vehicleDto.getPlateNumber())
-                .name(vehicleDto.getName())
-                .type(vehicleDto.getType())
+                .id(dto.getId())
+                .plateNumber(dto.getPlateNumber())
+                .name(dto.getName())
+                .type(dto.getType())
                 .build();
     }
 }

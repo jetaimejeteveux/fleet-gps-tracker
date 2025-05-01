@@ -49,7 +49,7 @@ public class VehicleController {
         return ResponseEntity.ok(vehicles);
     }
 
-       @GetMapping("/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "Get vehicle by ID", description = "Retrieve a vehicle by its ID")
     public ResponseEntity<VehicleDto> getVehicleById(@PathVariable Long id) {
         return ResponseEntity.ok(vehicleService.getVehicleById(id));
