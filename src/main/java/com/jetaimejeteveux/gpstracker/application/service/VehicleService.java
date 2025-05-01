@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jetaimejeteveux.gpstracker.application.dto.VehicleDto;
 import com.jetaimejeteveux.gpstracker.application.mapper.VehicleDtoMapper;
 import com.jetaimejeteveux.gpstracker.domain.model.Vehicle;
+import com.jetaimejeteveux.gpstracker.domain.repository.GpsLogRepository;
 import com.jetaimejeteveux.gpstracker.domain.repository.VehicleRepository;
 import com.jetaimejeteveux.gpstracker.infrastructure.mapper.VehicleEntityMapper;
 import com.jetaimejeteveux.gpstracker.presentation.exception.ResourceNotFoundException;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class VehicleService {
     private final VehicleRepository vehicleRepository;
+    private final GpsLogRepository gpsLogRepository;
     private final VehicleDtoMapper vehicleDtoMapper;    
     private final VehicleEntityMapper vehicleEntityMapper;
 

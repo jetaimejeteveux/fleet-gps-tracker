@@ -6,6 +6,8 @@
 package com.jetaimejeteveux.gpstracker.application.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,6 +65,22 @@ public class GpsLogService {
         GpsLog gpsLog = gpsRepository.findLatestByVehicleId(vehicleId)
                 .orElseThrow(() -> new ResourceNotFoundException("No GPS data found for vehicle with id: " + vehicleId));
         return buildLocationResponse(vehicle, gpsLog);
+    }
+
+    @Transactional(readOnly = true)
+    public List<LocationResponse> getLocationHistory(Long vehicleId, LocalDateTime from, LocalDateTime to) {
+        Vehicle vehicle = vehicleRepository.findById(vehicleId)
+                .orElseThrow(() -> new ResourceNotFoundException("Vehicle", "id", vehicleId));
+        
+        List<GpsLog> logs = gpsRepository.findAllByVehicleIdAndTimestampBetween(vehicleId, from, to);
+        
+        if (logs.isEmpty()) {
+            log.info("No GPS logs found for vehicle ID: {} between {} and {}", vehicleId, from, to);
+        }
+        
+        return logs.stream()
+                .map(log -> buildLocationResponse(vehicle, log))
+                .collect(Collectors.toList());
     }
 
     private LocationResponse buildLocationResponse(Vehicle vehicle, GpsLog gpsLog) {

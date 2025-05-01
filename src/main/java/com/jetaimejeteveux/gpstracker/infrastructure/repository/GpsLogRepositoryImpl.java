@@ -5,6 +5,8 @@
 
 package com.jetaimejeteveux.gpstracker.infrastructure.repository;
 
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
@@ -41,6 +43,14 @@ public class GpsLogRepositoryImpl implements GpsLogRepository {
     public Optional<GpsLog> findLatestByVehicleId(Long vehicleId) {
         return gpsLogJpaRepository.findTopByVehicleIdOrderByTimestampDesc(vehicleId)
                 .map(GpsLogEntityMapper::toDomain);
+    }
+
+    @Override
+    public List<GpsLog> findAllByVehicleIdAndTimestampBetween(Long vehicleId, LocalDateTime fromTime, LocalDateTime toTime) {
+        return gpsLogJpaRepository.findAllByVehicleIdAndTimestampBetween(vehicleId, fromTime, toTime)
+                .stream()
+                .map(GpsLogEntityMapper::toDomain)
+                .toList();
     }
 
 }
