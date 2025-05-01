@@ -19,11 +19,8 @@ import com.jetaimejeteveux.gpstracker.domain.repository.GpsLogRepository;
 import com.jetaimejeteveux.gpstracker.domain.repository.VehicleRepository;
 import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 import com.jetaimejeteveux.gpstracker.infrastructure.mapper.VehicleEntityMapper;
-import com.jetaimejeteveux.gpstracker.infrastructure.repository.jpa.VehicleJpaRepository;
 import com.jetaimejeteveux.gpstracker.presentation.exception.ResourceNotFoundException;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,10 +37,6 @@ public class GpsLogService {
     private final VehicleRepository vehicleRepository;
     private final VehicleEntityMapper vehicleEntityMapper;
     private final GpsLogDtoMapper gpsLogDtoMapper;
-    private final VehicleJpaRepository vehicleJpaRepository;
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
     @Transactional
     public GpsLogDto logGpsData(GpsLogDto gpsLogDto) {
@@ -69,7 +62,6 @@ public class GpsLogService {
 
         GpsLog gpsLog = gpsRepository.findLatestByVehicleId(vehicleId)
                 .orElseThrow(() -> new ResourceNotFoundException("No GPS data found for vehicle with id: " + vehicleId));
-                
         return buildLocationResponse(vehicle, gpsLog);
     }
 
