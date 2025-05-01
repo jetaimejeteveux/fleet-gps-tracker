@@ -5,6 +5,8 @@
 
 package com.jetaimejeteveux.gpstracker.domain.repository;
 
+import java.util.Optional;
+
 import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
 import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 
@@ -14,4 +16,5 @@ import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
  */
 public interface GpsLogRepository {
     GpsLog save(GpsLog gpsLog, VehicleEntity vehicleEntity);
+    Optional<GpsLog> findLatestByVehicleId(Long vehicleId);
 }

@@ -18,7 +18,7 @@ import com.jetaimejeteveux.gpstracker.infrastructure.entity.VehicleEntity;
 
 @Component
 public class GpsLogEntityMapper {
-    public static GpsLogEntity toEntity(GpsLog domain, VehicleEntity vehicleEntity) {
+    public GpsLogEntity toEntity(GpsLog domain, VehicleEntity vehicleEntity) {
         if (domain == null) return null;
 
         return GpsLogEntity.builder()

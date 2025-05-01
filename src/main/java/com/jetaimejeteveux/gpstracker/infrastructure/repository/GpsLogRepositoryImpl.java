@@ -5,6 +5,8 @@
 
 package com.jetaimejeteveux.gpstracker.infrastructure.repository;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Repository;
 
 import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
@@ -23,7 +25,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class GpsLogRepositryImpl implements GpsLogRepository {
+public class GpsLogRepositoryImpl implements GpsLogRepository {
     
     private final GpsLogJpaRepository gpsLogJpaRepository;
     private final GpsLogEntityMapper gpsLogEntityMapper;
@@ -33,6 +35,12 @@ public class GpsLogRepositryImpl implements GpsLogRepository {
         GpsLogEntity gpsLogEntity = gpsLogEntityMapper.toEntity(gpsLog, vehicleEntity);
         GpsLogEntity savedEntity = gpsLogJpaRepository.save(gpsLogEntity);
         return gpsLogEntityMapper.toDomain(savedEntity);
+    }
+
+    @Override
+    public Optional<GpsLog> findLatestByVehicleId(Long vehicleId) {
+        return gpsLogJpaRepository.findTopByVehicleIdOrderByTimestampDesc(vehicleId)
+                .map(GpsLogEntityMapper::toDomain);
     }
 
 }

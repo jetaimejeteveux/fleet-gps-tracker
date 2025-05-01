@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jetaimejeteveux.gpstracker.application.dto.LocationResponse;
 import com.jetaimejeteveux.gpstracker.application.dto.VehicleDto;
+import com.jetaimejeteveux.gpstracker.application.service.GpsLogService;
 import com.jetaimejeteveux.gpstracker.application.service.VehicleService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -35,6 +37,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class VehicleController {
     private final VehicleService vehicleService;
+    private final GpsLogService gpsLogService; 
 
     @PostMapping()
     public ResponseEntity<VehicleDto> createVehicle(@Valid @RequestBody VehicleDto vehicleDto) {
@@ -53,5 +56,10 @@ public class VehicleController {
     @Operation(summary = "Get vehicle by ID", description = "Retrieve a vehicle by its ID")
     public ResponseEntity<VehicleDto> getVehicleById(@PathVariable Long id) {
         return ResponseEntity.ok(vehicleService.getVehicleById(id));
+    }
+
+    @GetMapping("/{id}/last-location")
+    public ResponseEntity<LocationResponse> getLastLocation(@PathVariable("id") Long vehicleId) {
+        return ResponseEntity.ok(gpsLogService.getLatestGpsLocation(vehicleId));
     }
 }
