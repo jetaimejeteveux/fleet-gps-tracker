@@ -17,7 +17,7 @@ import com.jetaimejeteveux.gpstracker.domain.model.GpsLog;
 
 @Component
 public class GpsLogDtoMapper {
-    public static GpsLogDto toDto(GpsLog domain) {
+    public GpsLogDto toDto(GpsLog domain) {
         if (domain == null) return null;
 
         return GpsLogDto.builder()
@@ -30,7 +30,7 @@ public class GpsLogDtoMapper {
                 .build();
     }
 
-    public static GpsLog toDomain(GpsLogDto dto) {
+    public GpsLog toDomain(GpsLogDto dto) {
         if (dto == null) return null;
 
         return GpsLog.builder()
