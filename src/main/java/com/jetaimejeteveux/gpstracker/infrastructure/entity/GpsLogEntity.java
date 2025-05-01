@@ -18,6 +18,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -27,7 +28,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "gps_logs")
+@Table(name = "gps_logs", indexes = {
+    @Index(name = "idx_gps_logs_vehicle_id", columnList = "vehicle_id"),
+    @Index(name = "idx_gps_logs_timestamp", columnList = "timestamp"),
+    @Index(name = "idx_gps_logs_vehicle_timestamp", columnList = "vehicle_id, timestamp")
+})
 @Data
 @Builder
 @NoArgsConstructor
